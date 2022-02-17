@@ -1,11 +1,11 @@
 import './App.css';
-import PasswordVerify from './components/index';
+import Password from './components/index';
 
 function App() {
 
   return (
     <div>
-      <PasswordVerify></PasswordVerify>
+      <Password></Password>
     </div>
   );
 }
