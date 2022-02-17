@@ -11,6 +11,43 @@ ul li::before {
     margin-left: -1em;
 }
 
+.password {
+    display: flex;
+}
+
+.passwordInput {
+    margin-left: 300px;
+    height: 25px;
+    width: 500px;
+    margin-right: -1px;
+    border-color: lightgray;
+    border-style: groove;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+}
+
+label {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.checkbox {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.showPasswordBtn {
+    display: flex;
+    background-color: white;
+    height: 31px;
+    margin-left: -1px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-style: groove;
+    border-color: lightgray;
+}
+
 .valid {
     text-decoration: line-through;
 }
