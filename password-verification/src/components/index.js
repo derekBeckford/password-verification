@@ -16,7 +16,7 @@ function Password() {
   const regexNum = /\d/;
 
   //does not match users email address
-  const regexEmail =  /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/
+  const regexEmail =  /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:|\\)*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:|\\)+)\])/
 
   //initiating a false boolean state with useState
   const [shownPassword, setShownPassword] = useState(false);
@@ -48,11 +48,12 @@ function Password() {
       </button>
       <section>
         <ul>
+          {/*Using operational method to set class name to either have a line through the criteria achieved or not*/}
           <li className={input.match(regexChar) ? "valid" : "invalid"}>8-72 characters long</li>
           <li className={input.match(regexUc) ? "valid" : "invalid"}>1 Uppercase Character</li>
           <li className={input.match(regexLc) ? "valid" : "invalid"}>1 Lowercase Character</li>
           <li className={input.match(regexNum) ? "valid" : "invalid"}>1 Number</li>
-          <li className={input.match(regexNum) ? "invalid" : "valid"}>Should Not Match Your Email Address</li>
+          <li className={input.match(regexEmail) ? "invalid" : "valid"}>Should Not Match Your Email Address</li>
         </ul>
       </section>
     </section>
