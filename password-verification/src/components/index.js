@@ -23,6 +23,18 @@ function Password() {
     setCheckBox(!checkBox);
   };
 
+  //API
+  var apiUrl = "https://run.mocky.io/v3/09e642b5-b52f-43c1-837b-8ebf70c10813"
+  fetch(apiUrl)
+  .then(response => response.json()
+  .then(function (data) {
+    let userName = data.user.name
+    let userEmail = data.user.email
+    console.log(data)
+
+    
+  }));
+
   return (
     <section>
       {/* if/else for showing password text or hiding password text */}
