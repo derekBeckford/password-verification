@@ -23,7 +23,7 @@ function Password() {
     setCheckBox(!checkBox);
   };
 
-  //initializing API variables 
+  //initializing API variables
   const [userEmail, setUserEmail] = useState(null);
   const [userEmailName, setUserEmailName] = useState(null);
 
@@ -40,8 +40,10 @@ function Password() {
         return response.json();
       })
       .then((data) => {
+        //full email
         setUserEmail(data.user.email);
         setUserEmailName(
+          //email before '@'
           data.user.email.substring(0, data.user.email.indexOf("@"))
         );
       })
@@ -50,7 +52,7 @@ function Password() {
       });
   });
 
-  //check if email match 
+  //check if email match
   let checkEmail = (input) => {
     if (input === userEmail || input.includes(userEmailName)) return false;
     return true;
@@ -87,7 +89,13 @@ function Password() {
             1 Lowercase Character
           </li>
           {/* check user email from API and general email regex  */}
-          <li className={checkEmail(input) && !input.match(regexEmail) ? "valid" : "invalid"}>
+          <li
+            className={
+              checkEmail(input) && !input.match(regexEmail)
+                ? "valid"
+                : "invalid"
+            }
+          >
             Should Not Match Your Email Address
           </li>
           <li className={input.match(regexUc) ? "valid" : "invalid"}>
