@@ -25,6 +25,7 @@ A simple web application that allows users to verify their password with paramet
 *1 Uppercase Character
 *1 Number
 *Does not match users email 
+***
 
 ## Contributing 👪
 
