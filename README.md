@@ -2,7 +2,6 @@
 
 ![badge](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)
 ![badge](https://img.shields.io/github/languages/top/derekBeckford/password-verification)
-![badge](https://img.shields.io/badge/license-npm-brightgreen)
 ![badge](https://img.shields.io/github/repo-size/derekBeckford/password-verification)
 ![badge](https://img.shields.io/github/commit-activity/w/derekBeckford/password-verification)
 ![badge](https://img.shields.io/github/last-commit/derekBeckford/password-verification)
