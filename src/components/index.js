@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Password() {
   const [input, setInput] = useState("");
@@ -23,17 +23,38 @@ function Password() {
     setCheckBox(!checkBox);
   };
 
-  //API
-  var apiUrl = "https://run.mocky.io/v3/09e642b5-b52f-43c1-837b-8ebf70c10813"
-  fetch(apiUrl)
-  .then(response => response.json()
-  .then(function (data) {
-    let userName = data.user.name
-    let userEmail = data.user.email
-    console.log(data)
+  //initializing API variables 
+  const [userEmail, setUserEmail] = useState(null);
+  const [userEmailName, setUserEmailName] = useState(null);
 
-    
-  }));
+  //API
+  var apiUrl = "https://run.mocky.io/v3/09e642b5-b52f-43c1-837b-8ebf70c10813";
+
+  //API call to verify user email is not included in password
+  useEffect(() => {
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error();
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setUserEmail(data.user.email);
+        setUserEmailName(
+          data.user.email.substring(0, data.user.email.indexOf("@"))
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  //check if email match 
+  let checkEmail = (input) => {
+    if (input === userEmail || input.includes(userEmailName)) return false;
+    return true;
+  };
 
   return (
     <section>
@@ -65,17 +86,16 @@ function Password() {
           <li className={input.match(regexLc) ? "valid" : "invalid"}>
             1 Lowercase Character
           </li>
-          <li className={input.match(regexEmail) ? "invalid" : "valid"}>
+          {/* check user email from API and general email regex  */}
+          <li className={checkEmail(input) && !input.match(regexEmail) ? "valid" : "invalid"}>
             Should Not Match Your Email Address
           </li>
           <li className={input.match(regexUc) ? "valid" : "invalid"}>
             1 Uppercase Character
           </li>
-          
           <li className={input.match(regexNum) ? "valid" : "invalid"}>
             1 Number
           </li>
-          
         </ul>
       </section>
     </section>
