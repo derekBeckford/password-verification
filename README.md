@@ -19,13 +19,13 @@
 https://password-verification-db.herokuapp.com/
 
 A simple web application that allows users to verify their password with parameters of: 
-*** 
-*8-72 characters
-*1 Lowercase Character
-*1 Uppercase Character
-*1 Number
-*Does not match users email 
-***
+
+* 8-72 characters
+* 1 Lowercase Character
+* 1 Uppercase Character
+* 1 Number
+* Does not match users email 
+
 
 ## Contributing 👪
 
